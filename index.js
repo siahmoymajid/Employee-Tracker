@@ -33,6 +33,7 @@ function mainMenu() {
         viewAllRoles();
       }
       if (answer.action == "View All Employees") {
+        viewAllemployees();
       }
       if (answer.action == "Add Department ") {
         addDepartment();
@@ -41,8 +42,10 @@ function mainMenu() {
         addRole();
       }
       if (answer.action == "Add Employee") {
+        addemployee();
       }
       if (answer.action == "Update an Employee Role") {
+        updateEmployeeRole();
       }
     });
 }
@@ -57,6 +60,16 @@ function viewAllDepartments() {
 function viewAllRoles() {
   db.query(
     "SELECT * FROM role JOIN department ON role.department_id=department.id;",
+    function (err, data) {
+      console.table(data);
+      mainMenu();
+    });
+}
+
+function viewAllemployees() {
+  db.query(
+    //how to fix the id//
+    "SELECT * FROM employee JOIN department ON role.department_id=department.id;",
     function (err, data) {
       console.table(data);
       mainMenu();
@@ -107,6 +120,42 @@ function addRole() {
         `INSERT INTO role(title,salary, department_id) VALUES("${answer.title}", "${answer.salary}", "${answer.department_id}");`,
         function (err, data) {
           console.log("Role has been added!");
+          mainMenu();
+        }
+      );
+    });
+}
+
+function addemployee() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is the employee's name?",
+      },
+      {
+        type: "input",
+        name: "last name",
+        message: "What is the employee's last name?",
+      },
+      {
+        type: "input",
+        name: "role",
+        message: "What is the employee's role?",
+      },
+      {
+        type: "input",
+        name: "manager",
+        message: "who is the employee's manager?",
+      },
+    ])
+
+    .then((answer) => {
+      db.query(
+        `INSERT INTO employee(name,last name,role,manager) VALUES("${answer.name}", "${answer.lastName}", "${answer.role}", "${answer.manager}");`,
+        function (err, data) {
+          console.log("Employee has been added!");
           mainMenu();
         }
       );
