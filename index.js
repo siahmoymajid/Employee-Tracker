@@ -67,15 +67,16 @@ function viewAllRoles() {
 }
 
 function viewAllemployees() {
-  db.query(
-    //how to fix the id//
-    // "SELECT * FROM employee",
-    "SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, employee.manager_id FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id;",
-    function (err, data) {
-      console.table(data);
+    db.promise().query(
+      "SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, employee.manager_id FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id;",
+    )
+    .then((data) => {
+      console.table(data[0]);
       mainMenu();
-    }
-  );
+    })
+   catch (err) {
+    console.error(err);
+  }
 }
 
 function addDepartment() {
