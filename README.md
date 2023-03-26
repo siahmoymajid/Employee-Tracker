@@ -19,4 +19,4 @@ In this application you can add department, add role, add employee,view all depa
 
 ## Note
 
-ASKABS and tutor has assited me with this assignment.
+ASKABC and tutor has assited me with this assignment.
