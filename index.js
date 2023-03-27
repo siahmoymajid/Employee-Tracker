@@ -158,8 +158,11 @@ function addemployee() {
 
     .then((answer) => {
       db.query(
-        `INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES("${answer.firstName}", "${answer.lastName}", "${answer.role_id}", "${answer.manager_id}");`,
+        `INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES("${answer.firstName}", "${answer.lastName}", "${answer.role}", "${answer.manager}");`,
         function (err, data) {
+          if (err) {
+            console.log(err)
+          }
           console.log("Employee has been added!");
           mainMenu();
         }
