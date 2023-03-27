@@ -2,8 +2,8 @@
 
 ## Description
 
-AS A business owner
-I WANT to be able to view and manage the departments, roles, and employees in my company
+As a business owner
+I want to be able to view and manage the departments, roles, and employees in my company
 SO THAT I can organize and plan my business.
 In this application you can add department, add role, add employee,view all department, view all role, view all employees as well as update employees.
 
@@ -19,4 +19,4 @@ In this application you can add department, add role, add employee,view all depa
 
 ## Note
 
-ASKABS and tutor has assited me with this assignment.
+ASKABC and tutor has assited me with this assignment.
