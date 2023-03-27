@@ -136,16 +136,16 @@ function addemployee() {
     .prompt([
       {
         type: "input",
-        name: "firstname",
+        name: "firstName",
         message: "What is the employee's first name?",
       },
       {
         type: "input",
-        name: "lastname",
+        name: "lastName",
         message: "What is the employee's last Name?",
       },
       {
-        type: "input",
+        type: "input",        
         name: "role",
         message: "What is the employee's role id?",
       },
