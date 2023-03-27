@@ -17,6 +17,8 @@ In this application you can add department, add role, add employee,view all depa
 
 [Github](https://github.com/siahmoymajid/Employee-Tracker)
 
+[Watch the demo video here](https://drive.google.com/file/d/1RbxYRHxLpY-YZEMKRbNbqalSUx_QUBm1/view)
+
 ## Note
 
 ASKABC and tutor has assited me with this assignment.

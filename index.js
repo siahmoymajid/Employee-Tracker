@@ -63,7 +63,8 @@ function viewAllRoles() {
     function (err, data) {
       console.table(data);
       mainMenu();
-    });
+    }
+  );
 }
 
 function viewAllemployees() {
@@ -135,29 +136,29 @@ function addemployee() {
     .prompt([
       {
         type: "input",
-        name: "name",
-        message: "What is the employee's name?",
+        name: "firstname",
+        message: "What is the employee's first name?",
       },
       {
         type: "input",
-        name: "last name",
-        message: "What is the employee's last name?",
+        name: "lastname",
+        message: "What is the employee's last Name?",
       },
       {
         type: "input",
         name: "role",
-        message: "What is the employee's role?",
+        message: "What is the employee's role id?",
       },
       {
         type: "input",
         name: "manager",
-        message: "who is the employee's manager?",
+        message: "who is the employee's manager id?",
       },
     ])
 
     .then((answer) => {
       db.query(
-        `INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES("${answer.name}", "${answer.lastName}", "${answer.role}", "${answer.manager}");`,
+        `INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES("${answer.firstName}", "${answer.lastName}", "${answer.role_id}", "${answer.manager_id}");`,
         function (err, data) {
           console.log("Employee has been added!");
           mainMenu();
@@ -167,8 +168,8 @@ function addemployee() {
 }
 
 function updateEmployeeRole() {
-  // getting all employees SELECT * 
-  // getting all roles 
+  // getting all employees SELECT *
+  // getting all roles
   inquirer
     .prompt([
       {
