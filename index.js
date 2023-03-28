@@ -173,6 +173,13 @@ function addemployee() {
 function updateEmployeeRole() {
   // getting all employees SELECT *
   // getting all roles
+  // db.query(
+  //   "SELECT * FROM `table` WHERE `employee` = ? AND `age` > ?",
+  //   ["name", "role"],
+  //   function (err, results) {
+  //     console.log(results);
+  //   }
+  // );
   inquirer
     .prompt([
       {
@@ -189,9 +196,11 @@ function updateEmployeeRole() {
     .then((answer) => {
       // UPDATE fiction SET name = "Candide" WHERE id = 2;
       db.query(
-        `UPDATE employee SET role_id = "${answer.role_id}" WHERE id = ${answer.employee_id};`,
+        `UPDATE employee SET role_id = ?  WHERE id = ?`
+        ,[ answer.role_id,answer.employee_id],
         function (err, data) {
           console.log("Employee has been updated");
+          viewAllemployees();
           mainMenu();
         }
       );
