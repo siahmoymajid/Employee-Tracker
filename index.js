@@ -171,15 +171,7 @@ function addemployee() {
 }
 
 function updateEmployeeRole() {
-  // getting all employees SELECT *
-  // getting all roles
-  // db.query(
-  //   "SELECT * FROM `table` WHERE `employee` = ? AND `age` > ?",
-  //   ["name", "role"],
-  //   function (err, results) {
-  //     console.log(results);
-  //   }
-  // );
+  
   inquirer
     .prompt([
       {
